@@ -88,11 +88,13 @@
                 totalTax = Math.floor((taxMoney - 1900000) * 0.4 + 607000);
             }
 
+            var monthlyEarning = Math.floor((totalEarned - totalTax) / 12);
+
             document.getElementById('result').innerHTML =
                 "What you earn is " + totalEarned + "<br>" +
                 "What is your tax per year " + totalTax + "<br>" +
                 "Your net profit is " + (totalEarned - totalTax) + "<br>" +
-                "Your monthly earning is " + ((totalEarned - totalTax) / 12) + "<br>" +
+                "Your monthly earning is " + monthlyEarning + "<br>" +
                 "Your tax rate is " + ((100 * totalTax) / totalEarned).toFixed(2) + "%";
         }
     </script>
