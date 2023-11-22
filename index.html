@@ -4,6 +4,56 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tax Calculator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        form {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        label {
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 16px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+
+        button {
+            background-color: #4caf50;
+            color: white;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #45a049;
+        }
+
+        #result {
+            margin-top: 20px;
+        }
+    </style>
     <script>
         function calculateTax() {
             var monthlyIncome = parseInt(document.getElementById('monthlyIncome').value);
@@ -49,23 +99,24 @@
     </script>
 </head>
 <body>
-    <h1>Tax Calculator</h1>
     <form onsubmit="event.preventDefault(); calculateTax();">
+        <h1>Tax Calculator</h1>
+
         <label for="monthlyIncome">Monthly Income (TL): </label>
-        <input type="text" id="monthlyIncome" required><br>
+        <input type="text" id="monthlyIncome" required>
 
         <label for="age">Are you younger than 29?</label>
         <select id="age" required>
             <option value="y">Yes</option>
             <option value="n">No</option>
-        </select><br>
+        </select>
 
         <label for="monthlyExpenses">Monthly Expenses: </label>
-        <input type="text" id="monthlyExpenses" required><br>
+        <input type="text" id="monthlyExpenses" required>
 
         <button type="submit">Calculate</button>
-    </form>
 
-    <div id="result"></div>
+        <div id="result"></div>
+    </form>
 </body>
 </html>
