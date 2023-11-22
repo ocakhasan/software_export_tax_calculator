@@ -91,11 +91,11 @@
             var monthlyEarning = Math.floor((totalEarned - totalTax) / 12);
 
             document.getElementById('result').innerHTML =
-                "What you earn is " + totalEarned + "<br>" +
-                "What is your tax per year " + totalTax + "<br>" +
-                "Your net profit is " + (totalEarned - totalTax) + "<br>" +
-                "Your monthly earning is " + monthlyEarning + "<br>" +
-                "Your tax rate is " + ((100 * totalTax) / totalEarned).toFixed(2) + "%";
+                "you earn per year: " + totalEarned + "<br>" +
+                "your tax per year: " + totalTax + "<br>" +
+                "your net profit per year: " + (totalEarned - totalTax) + "<br>" +
+                "your monthly earning: " + monthlyEarning + "<br>" +
+                "your tax rate per year: " + ((100 * totalTax) / totalEarned).toFixed(2) + "%";
         }
     </script>
 </head>
