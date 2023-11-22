@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Calculator</title>
+    <script>
+        function calculateTax() {
+            var monthlyIncome = parseInt(document.getElementById('monthlyIncome').value);
+            var age = document.getElementById('age').value.toLowerCase();
+            var monthlyExpenses = parseInt(document.getElementById('monthlyExpenses').value);
+
+            var taxMoney = monthlyIncome * 12;
+            var totalEarned = monthlyIncome * 12;
+            var totalTax = 0;
+
+            if (isNaN(monthlyIncome) || isNaN(monthlyExpenses) || (age !== 'y' && age !== 'n')) {
+                alert('Invalid input. Please enter valid values.');
+                return;
+            }
+
+            if (age === 'y') {
+                taxMoney -= 150000;
+            }
+
+            taxMoney -= 12 * monthlyExpenses;
+            taxMoney = Math.floor(taxMoney / 5);
+
+            if (taxMoney <= 70000) {
+                totalTax = Math.floor(taxMoney * 0.15);
+            } else if (taxMoney > 70000 && taxMoney <= 150000) {
+                totalTax = Math.floor((taxMoney - 70000) * 0.2 + 10500);
+            } else if (taxMoney > 150000 && taxMoney <= 550000) {
+                totalTax = Math.floor((taxMoney - 150000) * 0.27 + 26500);
+            } else if (taxMoney > 550000 && taxMoney <= 1900000) {
+                totalTax = Math.floor((taxMoney - 550000) * 0.35 + 134500);
+            } else {
+                totalTax = Math.floor((taxMoney - 1900000) * 0.4 + 607000);
+            }
+
+            document.getElementById('result').innerHTML =
+                "What you earn is " + totalEarned + "<br>" +
+                "You will pay tax on " + (taxMoney * 2) + ", half of that " + taxMoney + "<br>" +
+                "What is your tax per year " + totalTax + "<br>" +
+                "Your net profit is " + (totalEarned - totalTax) + "<br>" +
+                "Your monthly earning is " + ((totalEarned - totalTax) / 12) + "<br>" +
+                "Your tax rate is " + ((100 * totalTax) / totalEarned).toFixed(2) + "%";
+        }
+    </script>
+</head>
+<body>
+    <h1>Tax Calculator</h1>
+    <form onsubmit="event.preventDefault(); calculateTax();">
+        <label for="monthlyIncome">Monthly Income (TL): </label>
+        <input type="text" id="monthlyIncome" required><br>
+
+        <label for="age">Are you younger than 29?</label>
+        <select id="age" required>
+            <option value="y">Yes</option>
+            <option value="n">No</option>
+        </select><br>
+
+        <label for="monthlyExpenses">Monthly Expenses: </label>
+        <input type="text" id="monthlyExpenses" required><br>
+
+        <button type="submit">Calculate</button>
+    </form>
+
+    <div id="result"></div>
+</body>
+</html>
