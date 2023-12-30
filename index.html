@@ -70,28 +70,29 @@
             }
 
             if (age === 'y') {
-                taxMoney -= 150000;
+                taxMoney -= 230000;
             }
 
             taxMoney -= 12 * monthlyExpenses;
             taxMoney = Math.floor(taxMoney / 5);
 
-            if (taxMoney <= 70000) {
+            if (taxMoney <= 110000) {
                 totalTax = Math.floor(taxMoney * 0.15);
-            } else if (taxMoney > 70000 && taxMoney <= 150000) {
-                totalTax = Math.floor((taxMoney - 70000) * 0.2 + 10500);
-            } else if (taxMoney > 150000 && taxMoney <= 550000) {
-                totalTax = Math.floor((taxMoney - 150000) * 0.27 + 26500);
-            } else if (taxMoney > 550000 && taxMoney <= 1900000) {
-                totalTax = Math.floor((taxMoney - 550000) * 0.35 + 134500);
+            } else if (taxMoney > 110000 && taxMoney <= 230000) {
+                totalTax = Math.floor((taxMoney - 110000) * 0.2 + 16500);
+            } else if (taxMoney > 230000 && taxMoney <= 580000) {
+                totalTax = Math.floor((taxMoney - 230000) * 0.27 + 40500);
+            } else if (taxMoney > 580000 && taxMoney <= 3000000) {
+                totalTax = Math.floor((taxMoney - 580000) * 0.35 + 135000);
             } else {
-                totalTax = Math.floor((taxMoney - 1900000) * 0.4 + 607000);
+                totalTax = Math.floor((taxMoney - 3000000) * 0.4 + 607000);
             }
 
             var monthlyEarning = Math.floor((totalEarned - totalTax) / 12);
 
             document.getElementById('result').innerHTML =
                 "you earn per year: " + totalEarned.toLocaleString() + "<br>" +
+                "what you pay your tax on(vergi matrahı): " + taxMoney + "<br>" +
                 "your tax per year: " + totalTax.toLocaleString() + "<br>" +
                 "net profit per year: " + (totalEarned - totalTax).toLocaleString() + "<br>" +
                 "Your monthly earning: " + monthlyEarning.toLocaleString() + "<br>" +
