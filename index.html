@@ -70,22 +70,22 @@
             }
 
             if (age === 'y') {
-                taxMoney -= 230000;
+                taxMoney -= 330000;
             }
 
             taxMoney -= 12 * monthlyExpenses;
             taxMoney = Math.floor(taxMoney / 5);
 
-            if (taxMoney <= 110000) {
+            if (taxMoney <= 158000) {
                 totalTax = Math.floor(taxMoney * 0.15);
-            } else if (taxMoney > 110000 && taxMoney <= 230000) {
-                totalTax = Math.floor((taxMoney - 110000) * 0.2 + 16500);
-            } else if (taxMoney > 230000 && taxMoney <= 580000) {
-                totalTax = Math.floor((taxMoney - 230000) * 0.27 + 40500);
-            } else if (taxMoney > 580000 && taxMoney <= 3000000) {
-                totalTax = Math.floor((taxMoney - 580000) * 0.35 + 135000);
+            } else if (taxMoney > 158000 && taxMoney <= 330000) {
+                totalTax = Math.floor((taxMoney - 158000) * 0.2 + 23700);
+            } else if (taxMoney > 330000 && taxMoney <= 800000) {
+                totalTax = Math.floor((taxMoney - 330000) * 0.27 + 58100);
+            } else if (taxMoney > 800000 && taxMoney <= 4300000) {
+                totalTax = Math.floor((taxMoney - 800000) * 0.35 + 185000);
             } else {
-                totalTax = Math.floor((taxMoney - 3000000) * 0.4 + 607000);
+                totalTax = Math.floor((taxMoney - 4300000) * 0.4 + 1410000);
             }
 
             var monthlyEarning = Math.floor((totalEarned - totalTax) / 12);
